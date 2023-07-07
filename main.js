@@ -24,7 +24,7 @@ const Init = async () => {
   const basePosts = await fetchData('https://jsonplaceholder.typicode.com/posts');
   const basePostsString = JSON.stringify(basePosts, null, 2);
   await fs.writeFile(postsPath, basePostsString, (err) => {
-      err ? console.log('error') : console.log('Success');
+      err ? console.log('error', err) : null;
     });
 
   // Lvl 2: Collect all Comments
@@ -37,7 +37,7 @@ const Init = async () => {
   };
   const commentsString = JSON.stringify(comments, null, 2);
   await fs.writeFile(commentsPath, commentsString,  (err) => {
-      err ? console.log('error') : console.log('Success');
+      err ? console.log('error', err) : null;
     });
   
   // Lvl 3: Merge Comments with Posts
@@ -47,7 +47,7 @@ const Init = async () => {
   };
   const fullPostsString = JSON.stringify(basePosts, null, 2);
   await fs.writeFile(fullPostsPath, fullPostsString, (err) => {
-      err ? console.log('error') : console.log('Success');
+      err ? console.log('error', err) : null;
     });
 
 
